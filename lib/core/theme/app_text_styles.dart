@@ -27,4 +27,41 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: Colors.white,
   );
+
+  static TextStyle font24BlueBold = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.primaryColor,
+  );
+
+  static TextStyle font14GrayRegular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.gray,
+  );
+  static TextStyle font14HintColorRegular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.hintTextColor,
+  );
+  static TextStyle font14BlackRegular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.textBlack,
+  );
+  static TextStyle font13BlueRegular = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.primaryColor,
+  );
+  static TextStyle font11VeryGrayRegular = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.veryLiteGray,
+  );
+  static TextStyle font11BlackRegular = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.textBlack,
+  );
 }
