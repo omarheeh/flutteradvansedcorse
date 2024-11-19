@@ -4,8 +4,6 @@ import 'package:flutteradvansedcorse/doc_app.dart';
 
 void main() {
   runApp(
-    DocApp(
-      appRouter: AppRouter(),
-    ),
+    DocApp(appRouter: AppRouter()),
   );
 }
