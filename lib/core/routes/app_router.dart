@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutteradvansedcorse/core/routes/routes.dart';
-import 'package:flutteradvansedcorse/feutures/on_bording/ui/login/ui/view/login_view.dart';
+import 'package:flutteradvansedcorse/feutures/login/ui/view/login_view.dart';
 import 'package:flutteradvansedcorse/feutures/on_bording/ui/view/onbording_view.dart';
 
 class AppRouter {
