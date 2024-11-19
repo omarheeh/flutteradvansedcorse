@@ -27,9 +27,7 @@ class DocDocApp extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: double.infinity,
-          ),
+          SizedBox(width: double.infinity),
           Text(
             "Omar",
           )
