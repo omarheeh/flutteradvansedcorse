@@ -1,9 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutteradvansedcorse/core/helper/app_validation.dart';
 import 'package:flutteradvansedcorse/core/theme/app_colors.dart';
 import 'package:flutteradvansedcorse/core/theme/app_text_styles.dart';
 import 'package:flutteradvansedcorse/core/widgets/app_button.dart';
 import 'package:flutteradvansedcorse/core/widgets/app_text_form_field.dart';
 import 'package:flutteradvansedcorse/core/widgets/spacers.dart';
+import 'package:flutteradvansedcorse/feutures/login/logic/cubit/login_cubit.dart';
 
 class LoginViewForm extends StatefulWidget {
   const LoginViewForm({
@@ -16,22 +21,30 @@ class LoginViewForm extends StatefulWidget {
 
 class _LoginViewFormState extends State<LoginViewForm> {
   bool isObserver = true;
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: context.read<LoginCubit>().formKey,
+      autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          const AppTextFormField(
+          AppTextFormField(
             hintText: 'Email',
+            controller: context.read<LoginCubit>().emailController,
+            validation: (email) {
+              return AppValidation.emailValidation(email);
+            },
           ),
           verticalSpacing(16),
           AppTextFormField(
             obscureText: isObserver,
             hintText: 'Password',
+            validation: (password) {
+              return AppValidation.passwordValidation(password);
+            },
+            controller: context.read<LoginCubit>().passwordController,
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -57,7 +70,15 @@ class _LoginViewFormState extends State<LoginViewForm> {
           verticalSpacing(32),
           AppButton(
             title: "Login",
-            onPressed: () {},
+            onPressed: () {
+              if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+                context.read<LoginCubit>().login();
+              } else {
+                setState(() {
+                  autovalidateMode = AutovalidateMode.always;
+                });
+              }
+            },
           ),
         ],
       ),

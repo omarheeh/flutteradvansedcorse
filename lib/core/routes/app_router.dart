@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutteradvansedcorse/core/di/dependence_injection.dart';
 import 'package:flutteradvansedcorse/core/routes/routes.dart';
+import 'package:flutteradvansedcorse/feutures/home/ui/view/home_view.dart';
+import 'package:flutteradvansedcorse/feutures/login/logic/cubit/login_cubit.dart';
 import 'package:flutteradvansedcorse/feutures/login/ui/view/login_view.dart';
 import 'package:flutteradvansedcorse/feutures/on_bording/ui/view/onbording_view.dart';
 
@@ -15,7 +19,15 @@ class AppRouter {
 
       case Routes.login:
         return MaterialPageRoute(
-          builder: (_) => const LoginView(),
+          builder: (_) => BlocProvider(
+            create: (context) => di<LoginCubit>(),
+            child: const LoginView(),
+          ),
+        );
+
+      case Routes.home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeView(),
         );
 
       default:
